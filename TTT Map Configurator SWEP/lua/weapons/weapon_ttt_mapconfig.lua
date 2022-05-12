@@ -94,12 +94,6 @@ local ItemsList = {
 	["ttt_playerspawn"] = {	model = "models/editor/playerstart.mdl",	ammo = false, name = "Spawn Point"}
 }
 
-local MergedTable = {}
-table.Add(MergedTable, WeaponsList)
-table.Add(MergedTable, ItemListT)
-table.Add(MergedTable, ItemListD)
-table.Add(MergedTable, ItemsList)
-
 concommand.Add( "tttcfg_class", function( ply, cmd, args )
     ply:GetActiveWeapon().CurrentEnt = args[1]
     ply:GetActiveWeapon():SetNWString("CurrentEnt", args[1])
@@ -411,7 +405,7 @@ local function CreateWeaponMenu(preset)
 		CloseButton:DockMargin( 0, 0, 0, 5 )
 
 		CloseButton.Paint = function( self, w, h )
-			draw.RoundedBox( 0, 0, 0, w, h, ButtonColors )
+			draw.RoundedBox( 0, 0, 0, w, h, Color(255, 255, 255, 200) )
 		end
 
 		CloseButton.DoClick = function()
@@ -426,7 +420,7 @@ local function CreateWeaponMenu(preset)
 		PrintButton:DockMargin( 0, 0, 0, 5 )
 
 		PrintButton.Paint = function( self, w, h )
-			draw.RoundedBox( 0, 0, 0, w, h, ButtonColors )
+			draw.RoundedBox( 0, 0, 0, w, h, Color(255, 255, 255, 200) )
 		end
 
 		PrintButton.DoClick = function()
